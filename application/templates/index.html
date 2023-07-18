@@ -1,0 +1,11 @@
+{% extends 'master.html' %}
+
+{% block content %}
+<h2>Top 10!</h2>
+<div>
+  <p>{{ access_token }}</p>
+  {% with countries = countries %}
+    {% include 'partials/picker.html' %}
+  {% endwith %}
+</div>
+{% endblock content %}

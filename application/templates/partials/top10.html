@@ -1,0 +1,25 @@
+{% block body %}
+<!-- Top 10 list -->
+  {% if tracks|length == 0 %}
+  <div>
+    <p>No tracks found</p>
+  </div>
+  {% endif %}
+<div>
+  <ol>
+    {% for track in tracks %}
+    <li>
+      <div class="track">
+        <p>{{ track["name"] }}</p>
+        <a href="{{ track['album']['external_urls']['spotify'] }}" style="display: inline">{{ track['album']['name'] }}</a>
+        <br>
+        <img src="{{ track['album']['images'][0]['url'] }}" width="200px" height="200px">
+        <br>
+        <a href="{{ track['external_urls']['spotify'] }}">Listen on Spotify</a>
+      </div>
+    </li>
+    {% endfor %}
+  </ol>
+</div>
+
+{% endblock body %}

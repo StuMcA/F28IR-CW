@@ -1,0 +1,19 @@
+{% block body %}
+<!--Picker to enter artists name-->
+<div class="artist-picker">
+    <h2>Choose an artist and country</h2>
+  <form
+          method="post"
+            action="{{ url_for('fetch') }}"
+  >
+    <input type="text" name="artist" placeholder="Enter artist name" required>
+    <select name="country" id="country">
+        <option value="" disabled selected>Select your country</option>
+        {% for country in countries %}
+        <option value="{{ country.alpha_2 }}">{{ country.name }}</option>
+        {% endfor %}
+    </select>
+    <input type="submit" value="Submit">
+  </form>
+</div>
+{% endblock body %}
